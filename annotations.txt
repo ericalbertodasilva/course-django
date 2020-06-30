@@ -1,0 +1,47 @@
+ - Criar volume
+
+docker volume create course-django-pgdata
+
+ - Contruir docker
+
+docker-compose up
+
+ - Para iniciar aplicação usando django e docker
+
+docker-compose run app django-admin startproject iniciando_com_django .
+
+ - Entrar no bash da instacia app
+
+docker-compose exec app bash
+
+ - Fazer migrate da aplicação
+
+python manage.py migrate
+
+ - Acrescentar modulo do django
+
+django-admin starapp app
+
+ - Qunado mudar o arquivo model é necessario verificar as mudanças com seguinte comando
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+ - criar super usuario
+
+python manage.py createsuperuser 
+
+ -  Acessar shell interativo do django
+
+python manage.py shell
+
+ - Configurar pqadmin
+
+ - Marcar a imagem antes de enviar para docker hub
+
+docker tag hello-world eadasilva/iniciando-django-app
+
+  -  enviar a imagem para docker hub
+
+docker login ; docker push eadasilva/iniciando-django-app
