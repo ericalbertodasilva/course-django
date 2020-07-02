@@ -82,6 +82,7 @@ WSGI_APPLICATION = 'app_django.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 DATABASES = {
     'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
@@ -129,11 +130,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Change 'default' database configuration with $DATABASE_URL.
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-DATABASES = {  }
-
-
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -144,6 +140,7 @@ ALLOWED_HOSTS = ['*']
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
@@ -156,6 +153,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = 'media'
