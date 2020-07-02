@@ -18,10 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from clients import urls as clients_urls
+from home import urls as home_urls
 from django.contrib.auth import urls as auth_urls
 
 urlpatterns = [
-    path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('', include(home_urls)),
     path('people/', include(clients_urls))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
