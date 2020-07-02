@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['app_django.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['app_django.herokuapp.com', 'localhost', 'app-django-first1.herokuapp.com']
 
 
 # Application definition
@@ -84,7 +84,8 @@ WSGI_APPLICATION = 'app_django.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+    'users': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
@@ -93,6 +94,7 @@ DATABASES = {
         'PORT': config('DB_PORT'),
     }
 }
+
 
 
 # Password validation
@@ -128,7 +130,8 @@ USE_L10N = True
 USE_TZ = True
 
 # Change 'default' database configuration with $DATABASE_URL.
-DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+DATABASES = {  }
 
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
