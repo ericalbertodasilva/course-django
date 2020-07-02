@@ -2,4 +2,4 @@
 gunicorn
 psycopg2==2.8.5
 django-heroku
-whitenoise
+whitenoise==5.1.0
