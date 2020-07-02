@@ -1,7 +1,7 @@
 __pycache__
 .vscode
-migrations
 *.sqlite3
-*png
-*jpeg
+*.png
+*.jpeg
 .env
+media

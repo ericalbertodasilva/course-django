@@ -1,5 +1,5 @@
-Django==3.0.6
+-r requirements-dev.txt
+gunicorn
 psycopg2==2.8.5
-Pillow==7.2.0
-python-decouple
-dj_database_url
+django-heroku
+whitenoise
