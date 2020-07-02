@@ -15,15 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include 
-from .views import hello, articles_by_year, get_age
 from django.conf import settings
 from django.conf.urls.static import static
 from clients import urls as clients_urls
+from django.contrib.auth import urls as auth_urls
 
 urlpatterns = [
-    path('hello/', hello),
-    path('articles/<int:year>', articles_by_year),
-    path('age/<str:name>', get_age),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('people/', include(clients_urls))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
