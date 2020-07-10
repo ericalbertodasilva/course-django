@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New person</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Cadastrar pessoa {% endblock %}
+
+{% block main %}
+
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit" >Salvar</button>
+        {{ form|bootstrap_horizontal }}
+        <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
-</body>
-</html>
+{% endblock %}
+
+{% block footer %}
+
+    <footer class="footer">
+        <div class="container">
+        <span class="text-muted">Desenvolvimento web com Django 3.x</span>
+        </div>
+    </footer>
+
+{% endblock %}

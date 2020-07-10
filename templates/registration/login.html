@@ -1,19 +1,24 @@
-{% load static %}
-<!doctype html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <title>login</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load bootstrap %}
 
+
+{% block title %} Pagina de login {% endblock %}
+
+{% block main %}
 
     <h2>Login</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p}}
-        <button type="submit" >Login</button>
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-info">Login</button>
     </form>
     
-</body>
-</html>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+        <span class="text-muted">Desenvolvimento web com Django 3.x</span>
+        </div>
+    </footer>
+{% endblock %}

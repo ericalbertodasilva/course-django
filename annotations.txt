@@ -45,3 +45,5 @@ docker tag hello-world eadasilva/iniciando-django-app
   -  enviar a imagem para docker hub
 
 docker login ; docker push eadasilva/iniciando-django-app
+
+https://app-django-first1.herokuapp.com/ | https://git.heroku.com/app-django-first1.git

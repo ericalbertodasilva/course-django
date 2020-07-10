@@ -1,2 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Pagina de logout {% endblock %}
+
+{% block main %}
 <p>Logged out!</p>  
 <a href="{% url 'login'%}">Click here to login again.</a>
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+        <span class="text-muted">Desenvolvimento web com Django 3.x</span>
+        </div>
+    </footer>
+{% endblock %}

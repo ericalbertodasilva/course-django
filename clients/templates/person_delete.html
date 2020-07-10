@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New person</title>
-</head>
-<body>
-    <H1>Tem certeza que deseja apagar o registro da pessoa {{person.first_name}}?</H1>
+{% extends 'base.html' %}
+
+{% block title %} Deletar cadastrar {% endblock %}
+
+{% block main %}
+
+    <h2>Tem certeza que deseja apagar o registro da pessoa {{person.first_name}}?</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <button type="submit">Apagar</button>
+        <button type="submit" class="btn btn-danger">Apagar</button>
     </form>
-</body>
-</html>
+
+{% endblock %}
+
+{% block footer %}
+
+    <footer class="footer">
+        <div class="container">
+        <span class="text-muted">Desenvolvimento web com Django 3.x</span>
+        </div>
+    </footer>
+
+{% endblock %}

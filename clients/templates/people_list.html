@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peaple List</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %} Lista de pessoas  {% endblock %}
+
+{% block main %}
     <ul>
         {% for person in people %}
             <li>
                 <a href="{% url 'person_update' person.id %}">{{person}}</a>
-                <a href="{% url 'person_delete' person.id %}">Apagar</a>
+                <a href="{% url 'person_delete' person.id %}" ><button type="button" class="btn btn-warning">Apagar</button></a>
             </li>
         {% endfor %}
     </ul>
     <a href="{% url 'person_new' %}">Novo Cliente</a>
-</body>
-</html>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+        <span class="text-muted">Desenvolvimento web com Django 3.x</span>
+        </div>
+    </footer>
+{% endblock %}
